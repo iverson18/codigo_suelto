@@ -1,0 +1,15 @@
+public class PrincipalAviones{
+    public static void main(String[] args){
+        AvionesCombate[] aviones = new AvionesCombate[4];
+        aviones[0] = new AvionF35();
+        aviones[1] = new AvionF35();
+        aviones[2] = new AvionF22();
+        aviones[3] = new AvionF22();
+        System.out.println(AvionesCombate.toStringAviones(aviones));
+        System.out.println(AvionesCombate.avionesVeloces(aviones));
+        System.out.println(AvionesCombate.masVeloz(aviones[0],aviones[3]));
+        AvionesCombate.ataque(aviones[0],aviones[1]);
+        AvionesCombate.ataque(aviones[3],aviones[0]);
+        System.out.println(AvionesCombate.toStringAviones(aviones));
+    }
+}
