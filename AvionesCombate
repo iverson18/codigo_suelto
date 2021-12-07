@@ -1,0 +1,86 @@
+public class AvionesCombate{
+    private int velocidad;
+    private int costo;
+    private int salud = 10;
+    private int ataque;
+    
+    public AvionesCombate(){
+    }
+    
+    public AvionesCombate(int vel, int cos, int ata){
+        this.velocidad = vel;
+        this.costo = cos; 
+        this.ataque = ata;
+    }
+    
+    public void setVelocidad(int vel){
+        this.velocidad = vel;
+    }
+    
+    public void setCosto(int cos){
+        this.costo = cos;
+    }
+    
+    public void setSalud(int sal){
+        this.salud = sal;
+    }
+    
+    public void setAtaque(int ata){
+        this.ataque = ata;
+    }
+    
+    public int getVelocidad(){
+        return this.velocidad;
+    }
+    
+    public int getCosto(){
+        return this.costo;
+    }
+    
+    public int getSalud(){
+        return this.salud;
+    }
+    
+    public int getAtaque(){
+        return this.ataque;
+    }
+    
+    @Override
+    public String toString(){
+        return "Velocidad :"+ this.velocidad+ " Costo :"+this.costo+" Salud :"+this.salud;
+    }
+    
+    public static String toStringAviones(AvionesCombate[] aviones){
+        String texto = "";
+        for(int i = 0; i < aviones.length; i++){
+                texto = texto + aviones[i].toString()+"\n";
+        }
+        return texto;
+    }
+    
+    public static String masVeloz(AvionesCombate A1, AvionesCombate A2){
+        if(A1.getVelocidad() > A2.getVelocidad()){
+            return "El Avion mas veloz es :" + 
+                   "\n"+ A1.toString()+"\n";
+        }else{
+            return "El Avion mas veloz es :" + 
+                   "\n"+A2.toString()+"\n";
+        }
+    }
+    
+    public static String avionesVeloces(AvionesCombate[] aviones){
+        String avionesVeloces = "";
+        for(int i = 0; i < aviones.length; i++){
+            if(aviones[i].getVelocidad() >= 2100){
+                avionesVeloces = avionesVeloces + aviones[i].toString()+"\n";
+            }
+        }
+        return avionesVeloces;
+    }
+    
+    public static void ataque(AvionesCombate A1, AvionesCombate A2){
+        int saludFinal = A2.getSalud() - A1.getAtaque();
+        A2.setSalud(saludFinal);
+    }
+    
+}
